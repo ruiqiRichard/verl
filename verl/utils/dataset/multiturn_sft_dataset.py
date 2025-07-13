@@ -230,8 +230,8 @@ class MultiTurnSFTDataset(Dataset):
         tools = self.tools[item] if self.tools is not None else None
         enable_thinking = self.enable_thinking[item] if self.enable_thinking is not None else None
 
-        if self.tools is not None:
-            tools = json.loads(self.tools[item])
+        if isinstance(tools, str):
+            tools = json.loads(tools)
         else:
             tools = None
 
